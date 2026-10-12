@@ -688,12 +688,13 @@ footer {
   .hero {
     padding-top: 104px;
     min-height: 880px;
+    padding-bottom: clamp(190px, 31vw, 250px);
   }
 
   .hero__safari-frame {
-    width: 1350px;
-    bottom: -20px;
-    opacity: .72;
+    width: 118vw;
+    bottom: -1vw;
+    opacity: .84;
   }
 
   .story__grid,
@@ -728,8 +729,8 @@ footer {
   }
 
   .hero {
-    min-height: 100svh;
-    padding: 96px 18px 56px;
+    min-height: max(100svh, 820px);
+    padding: 92px 18px 205px;
   }
 
   .hero__portrait-wrap {
@@ -746,9 +747,13 @@ footer {
   }
 
   .hero__safari-frame {
-    width: 1080px;
-    bottom: -5px;
-    opacity: .64;
+    width: 108vw;
+    bottom: 0;
+    opacity: .94;
+  }
+
+  .scroll-cue {
+    margin-top: 22px;
   }
 
   .countdown__grid {
