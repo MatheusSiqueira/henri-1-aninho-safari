@@ -28,11 +28,6 @@
       />
 
       <div class="invitation-gate__content">
-        <p class="invitation-gate__eyebrow">VOCÊ ESTÁ CONVIDADO</p>
-        <p class="invitation-gate__intro">Uma aventura muito especial está chegando</p>
-        <h1>Henri</h1>
-        <p class="invitation-gate__age">faz 1 aninho</p>
-
         <button
           class="invitation-envelope"
           id="open-invitation"
@@ -40,22 +35,17 @@
           aria-label="Abrir o convite de aniversário do Henri"
         >
           <span class="invitation-envelope__back" aria-hidden="true"></span>
-          <span class="invitation-envelope__letter" aria-hidden="true">
-            <img src="assets/henri.png" alt="" />
-            <strong>Henri</strong>
-            <small>10 · NOV · 2026</small>
-          </span>
+          <span class="invitation-envelope__fold invitation-envelope__fold--left" aria-hidden="true"></span>
+          <span class="invitation-envelope__fold invitation-envelope__fold--right" aria-hidden="true"></span>
+          <span class="invitation-envelope__fold invitation-envelope__fold--bottom" aria-hidden="true"></span>
           <span class="invitation-envelope__front" aria-hidden="true"></span>
           <span class="invitation-envelope__flap" aria-hidden="true"></span>
-          <span class="invitation-envelope__seal" aria-hidden="true">1</span>
+          <span class="invitation-envelope__seal" aria-hidden="true">
+            <b>H</b>
+            <em>1 ano</em>
+          </span>
+          <span class="invitation-envelope__hint" aria-hidden="true">TOQUE PARA ABRIR</span>
         </button>
-
-        <p class="invitation-gate__hint">
-          <span>toque para abrir o convite</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 5v14M6 13l6 6 6-6" />
-          </svg>
-        </p>
       </div>
     </section>
 
