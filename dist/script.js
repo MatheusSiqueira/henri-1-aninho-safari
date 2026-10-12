@@ -1,5 +1,29 @@
 const targetDate = new Date("2026-11-10T00:00:00-04:00");
 
+const invitationGate = document.querySelector("#invitation-gate");
+const openInvitationButton = document.querySelector("#open-invitation");
+
+if (invitationGate && openInvitationButton) {
+  document.body.classList.add("invitation-locked");
+
+  openInvitationButton.addEventListener("click", () => {
+    if (invitationGate.classList.contains("is-opening")) return;
+
+    invitationGate.classList.add("is-opening");
+    openInvitationButton.disabled = true;
+
+    window.setTimeout(() => {
+      invitationGate.classList.add("is-open");
+      document.body.classList.remove("invitation-locked");
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }, 1050);
+
+    window.setTimeout(() => {
+      invitationGate.hidden = true;
+    }, 1750);
+  });
+}
+
 const els = {
   days: document.querySelector("#days"),
   hours: document.querySelector("#hours"),
