@@ -895,6 +895,40 @@ footer {
   }
 }
 
+@media (max-width: 560px) and (max-height: 900px) {
+  .hero {
+    min-height: 100svh;
+    padding: 52px 18px 220px;
+  }
+
+  .hero__portrait-wrap {
+    width: 170px;
+    margin: 28px auto 10px;
+    transform: translateY(-22px);
+  }
+
+  .hero__intro {
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    font-size: 74px;
+  }
+
+  .hero__age {
+    margin: 10px 0 18px;
+  }
+
+  .scroll-cue {
+    margin-top: 16px;
+  }
+
+  .hero__safari-frame {
+    width: 94vw;
+    bottom: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
