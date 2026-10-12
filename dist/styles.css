@@ -42,10 +42,12 @@ body.invitation-locked {
   display: grid;
   place-items: center;
   overflow: hidden;
-  padding: 38px 20px 170px;
+  padding: 28px 20px 158px;
   background:
-    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, .98), transparent 42%),
-    linear-gradient(180deg, #fbf7ed 0%, #f2e8d7 100%);
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, .98), transparent 38%),
+    radial-gradient(circle at 12% 16%, rgba(176, 194, 162, .18), transparent 26%),
+    radial-gradient(circle at 88% 24%, rgba(184, 139, 77, .10), transparent 24%),
+    linear-gradient(180deg, #fbf7ed 0%, #efe4d2 100%);
   transition: opacity 650ms ease, visibility 650ms ease;
 }
 
@@ -64,10 +66,10 @@ body.invitation-locked {
   width: min(760px, 130vw);
   aspect-ratio: 1;
   border-radius: 50%;
-  top: -12%;
+  top: -18%;
   left: 50%;
   transform: translateX(-50%);
-  background: radial-gradient(circle, rgba(194, 211, 184, .42), rgba(194, 211, 184, 0) 68%);
+  background: radial-gradient(circle, rgba(194, 211, 184, .48), rgba(194, 211, 184, 0) 68%);
 }
 
 .invitation-gate__safari {
@@ -75,7 +77,7 @@ body.invitation-locked {
   z-index: 1;
   left: 50%;
   bottom: 0;
-  width: min(900px, 103vw);
+  width: min(900px, 101vw);
   max-width: none;
   transform: translateX(-50%);
   pointer-events: none;
@@ -84,59 +86,164 @@ body.invitation-locked {
 .invitation-gate__content {
   position: relative;
   z-index: 2;
-  width: min(520px, 100%);
+  width: min(540px, 100%);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.invitation-gate__eyebrow {
-  margin: 0 0 12px;
-  color: var(--sage);
+.invitation-gate__card {
+  position: relative;
+  width: min(430px, 92vw);
+  padding: 24px 26px 21px;
+  border: 1px solid rgba(184, 139, 77, .34);
+  border-radius: 24px 24px 10px 10px;
+  background:
+    linear-gradient(rgba(255,255,255,.62), rgba(255,255,255,.62)),
+    #fbf6eb;
+  box-shadow:
+    0 20px 55px rgba(48, 62, 49, .11),
+    inset 0 0 0 5px rgba(255,255,255,.48),
+    inset 0 0 0 6px rgba(184, 139, 77, .12);
+}
+
+.invitation-gate__card::before,
+.invitation-gate__card::after {
+  content: "";
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-color: rgba(115, 128, 106, .42);
+  pointer-events: none;
+}
+
+.invitation-gate__card::before {
+  top: 9px;
+  left: 9px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-radius: 14px 0 0 0;
+}
+
+.invitation-gate__card::after {
+  right: 9px;
+  bottom: 9px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-radius: 0 0 10px 0;
+}
+
+.invitation-gate__ornament {
+  position: absolute;
+  left: 50%;
+  color: var(--gold);
   font-size: 10px;
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+.invitation-gate__ornament::before,
+.invitation-gate__ornament::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 42px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,139,77,.62));
+}
+
+.invitation-gate__ornament::before {
+  right: 16px;
+}
+
+.invitation-gate__ornament::after {
+  left: 16px;
+  transform: rotate(180deg);
+}
+
+.invitation-gate__ornament--top { top: 11px; }
+.invitation-gate__ornament--bottom { bottom: 9px; }
+
+.invitation-gate__eyebrow {
+  margin: 0 0 10px;
+  color: var(--sage);
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: .28em;
+  letter-spacing: .25em;
 }
 
 .invitation-gate__intro {
-  margin: 0 0 4px;
+  max-width: 330px;
+  margin: 0 auto 5px;
   color: var(--sage);
   font-family: var(--serif);
-  font-size: clamp(16px, 4.6vw, 20px);
+  font-size: clamp(15px, 4.4vw, 19px);
   font-style: italic;
+  line-height: 1.3;
 }
 
 .invitation-gate h1 {
   margin: 0;
   color: var(--forest);
   font-family: var(--serif);
-  font-size: clamp(70px, 21vw, 108px);
+  font-size: clamp(68px, 19vw, 98px);
   font-weight: 400;
   line-height: .9;
   letter-spacing: -.07em;
 }
 
 .invitation-gate__age {
-  margin: 8px 0 24px;
+  margin: 7px 0 13px;
   color: var(--terracotta);
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 21px;
   font-style: italic;
+}
+
+.invitation-gate__age strong {
+  font-weight: 400;
+}
+
+.invitation-gate__date {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 8px 14px;
+  border-top: 1px solid rgba(184, 139, 77, .26);
+  border-bottom: 1px solid rgba(184, 139, 77, .26);
+  color: var(--forest);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .22em;
+}
+
+.invitation-gate__date i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
 }
 
 .invitation-envelope {
   position: relative;
-  width: min(300px, 78vw);
+  width: min(310px, 80vw);
   aspect-ratio: 1.55;
-  margin: 6px 0 26px;
+  margin: -4px 0 20px;
   padding: 0;
   border: 0;
   background: transparent;
   cursor: pointer;
   perspective: 900px;
   -webkit-tap-highlight-color: transparent;
-  filter: drop-shadow(0 20px 26px rgba(49, 60, 49, .18));
+  filter: drop-shadow(0 22px 28px rgba(49, 60, 49, .20));
+  transition: transform 260ms ease, filter 260ms ease;
+}
+
+.invitation-envelope:hover {
+  transform: translateY(-3px) scale(1.012);
+  filter: drop-shadow(0 26px 32px rgba(49, 60, 49, .22));
 }
 
 .invitation-envelope:focus-visible {
@@ -154,9 +261,11 @@ body.invitation-locked {
 }
 
 .invitation-envelope__back {
-  border: 1px solid rgba(83, 92, 72, .18);
-  border-radius: 5px;
-  background: #e7dcc7;
+  border: 1px solid rgba(83, 92, 72, .20);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.52), transparent 42%),
+    #e8dcc6;
 }
 
 .invitation-envelope__letter {
@@ -170,15 +279,31 @@ body.invitation-locked {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  border: 1px solid rgba(184, 139, 77, .26);
-  background: #fffaf0;
+  gap: 4px;
+  border: 1px solid rgba(184, 139, 77, .30);
+  border-radius: 6px 6px 2px 2px;
+  background:
+    radial-gradient(circle at 50% 16%, rgba(201, 215, 190, .23), transparent 38%),
+    #fffaf0;
+  box-shadow: 0 7px 18px rgba(63, 71, 57, .10);
   transition: transform 760ms cubic-bezier(.2,.72,.2,1) 260ms;
 }
 
+.invitation-envelope__letter::before,
+.invitation-envelope__letter::after {
+  content: "✦";
+  position: absolute;
+  top: 10px;
+  color: rgba(184, 139, 77, .55);
+  font-size: 7px;
+}
+
+.invitation-envelope__letter::before { left: 12px; }
+.invitation-envelope__letter::after { right: 12px; }
+
 .invitation-envelope__letter img {
-  width: 54px;
-  height: 54px;
+  width: 58px;
+  height: 58px;
   border: 4px solid #fff;
   border-radius: 50%;
   object-fit: cover;
@@ -189,29 +314,41 @@ body.invitation-locked {
 .invitation-envelope__letter strong {
   color: var(--forest);
   font-family: var(--serif);
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 400;
 }
 
 .invitation-envelope__letter small {
   color: var(--sage);
-  font-size: 8px;
+  font-size: 7px;
   font-weight: 700;
   letter-spacing: .18em;
+}
+
+.invitation-envelope__letter .invitation-envelope__label {
+  margin-bottom: 1px;
+  color: var(--gold);
+  font-size: 6px;
+  letter-spacing: .26em;
 }
 
 .invitation-envelope__front {
   z-index: 3;
   clip-path: polygon(0 36%, 50% 72%, 100% 36%, 100% 100%, 0 100%);
-  border-radius: 5px;
-  background: linear-gradient(145deg, #eadfca 0%, #d9c8ac 100%);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.34) 0%, transparent 36%),
+    linear-gradient(145deg, #eadfca 0%, #d6c1a1 100%);
+  box-shadow: inset 0 -1px 0 rgba(91, 79, 58, .08);
 }
 
 .invitation-envelope__flap {
   z-index: 4;
   clip-path: polygon(0 0, 100% 0, 50% 62%);
-  border-radius: 5px;
-  background: #efe5d2;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.48), transparent 56%),
+    #eee2ce;
   transform-origin: 50% 0;
   transition: transform 560ms cubic-bezier(.4,0,.2,1);
   backface-visibility: hidden;
@@ -222,18 +359,45 @@ body.invitation-locked {
   z-index: 5;
   top: 48%;
   left: 50%;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   display: grid;
   place-items: center;
-  border: 4px solid rgba(255, 250, 240, .92);
+  border: 3px solid rgba(255, 250, 240, .92);
   border-radius: 50%;
-  background: var(--forest);
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,.18), transparent 28%),
+    var(--forest);
   color: #fffaf0;
   font-family: var(--serif);
-  font-size: 21px;
+  box-shadow:
+    0 5px 12px rgba(49, 60, 49, .22),
+    inset 0 0 0 2px rgba(184, 139, 77, .36);
   transform: translate(-50%, -50%);
   transition: opacity 220ms ease, transform 320ms ease;
+}
+
+.invitation-envelope__seal b,
+.invitation-envelope__seal em {
+  position: absolute;
+  left: 50%;
+  font-style: normal;
+  transform: translateX(-50%);
+}
+
+.invitation-envelope__seal b {
+  top: 7px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.invitation-envelope__seal em {
+  bottom: 7px;
+  font-family: var(--sans);
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
 }
 
 .invitation-gate.is-opening .invitation-envelope__flap {
@@ -246,7 +410,7 @@ body.invitation-locked {
 }
 
 .invitation-gate.is-opening .invitation-envelope__letter {
-  transform: translateY(-58%);
+  transform: translateY(-62%);
 }
 
 .invitation-gate__hint {
@@ -254,9 +418,9 @@ body.invitation-locked {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   color: var(--sage);
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
   letter-spacing: .2em;
   text-transform: uppercase;
@@ -1061,20 +1225,30 @@ footer {
 
 @media (max-width: 560px) {
   .invitation-gate {
-    padding: 28px 18px 145px;
+    padding: 22px 16px 138px;
   }
 
   .invitation-gate__safari {
     width: 98vw;
   }
 
+  .invitation-gate__card {
+    width: min(390px, 91vw);
+    padding: 22px 18px 19px;
+    border-radius: 21px 21px 9px 9px;
+  }
+
+  .invitation-gate__intro {
+    max-width: 290px;
+  }
+
   .invitation-gate__age {
-    margin-bottom: 18px;
+    margin-bottom: 11px;
   }
 
   .invitation-envelope {
-    width: min(278px, 76vw);
-    margin-bottom: 20px;
+    width: min(270px, 74vw);
+    margin-bottom: 16px;
   }
 
   .section {
@@ -1153,29 +1327,68 @@ footer {
 
 @media (max-width: 560px) and (max-height: 900px) {
   .invitation-gate {
-    padding: 22px 18px 120px;
+    padding: 16px 16px 112px;
   }
 
   .invitation-gate__eyebrow {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    font-size: 8px;
+  }
+
+  .invitation-gate__card {
+    width: min(370px, 90vw);
+    padding: 18px 16px 16px;
+  }
+
+  .invitation-gate__intro {
+    font-size: 14px;
+    line-height: 1.22;
   }
 
   .invitation-gate h1 {
-    font-size: 68px;
+    font-size: 61px;
   }
 
   .invitation-gate__age {
-    margin: 5px 0 12px;
-    font-size: 19px;
+    margin: 4px 0 8px;
+    font-size: 17px;
+  }
+
+  .invitation-gate__date {
+    gap: 7px;
+    padding: 6px 11px;
+    font-size: 8px;
   }
 
   .invitation-envelope {
-    width: min(238px, 68vw);
-    margin-bottom: 14px;
+    width: min(220px, 64vw);
+    margin: -3px 0 10px;
+  }
+
+  .invitation-envelope__letter img {
+    width: 47px;
+    height: 47px;
+  }
+
+  .invitation-envelope__letter strong {
+    font-size: 21px;
+  }
+
+  .invitation-envelope__seal {
+    width: 46px;
+    height: 46px;
+  }
+
+  .invitation-envelope__seal b {
+    top: 5px;
+  }
+
+  .invitation-envelope__seal em {
+    bottom: 5px;
   }
 
   .invitation-gate__safari {
-    width: 90vw;
+    width: 88vw;
   }
 
   .hero {
@@ -1220,5 +1433,509 @@ footer {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
+  }
+}
+
+/* ===== Envelope de abertura - Safari ===== */
+.invitation-gate {
+  padding: 0;
+  background: #f6f0e5;
+  isolation: isolate;
+}
+
+.invitation-gate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .28;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.invitation-gate__wash {
+  z-index: 0;
+  width: 110vmax;
+  top: -55vmax;
+  opacity: .65;
+  background: radial-gradient(circle, rgba(190, 207, 176, .32), rgba(190, 207, 176, 0) 66%);
+}
+
+.invitation-gate__content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  max-width: none;
+  display: block;
+}
+
+.invitation-gate__safari {
+  z-index: 4;
+  left: 50%;
+  bottom: -1.5vw;
+  width: min(1500px, 106vw);
+  max-width: none;
+  opacity: .42;
+  filter: saturate(.78) sepia(.08) brightness(1.08);
+  transform: translateX(-50%);
+  transition: transform 900ms cubic-bezier(.2,.72,.2,1), opacity 650ms ease;
+}
+
+.invitation-envelope {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #f6f0e5;
+  cursor: pointer;
+  perspective: 1800px;
+  filter: none;
+  transform: none;
+}
+
+.invitation-envelope:hover {
+  transform: none;
+  filter: none;
+}
+
+.invitation-envelope:focus-visible {
+  outline: 3px solid rgba(70, 91, 70, .45);
+  outline-offset: -8px;
+  border-radius: 0;
+}
+
+.invitation-envelope__back {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  border: 0;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255,255,255,.8), transparent 35%),
+    linear-gradient(180deg, #fbf8f0 0%, #f1eadf 100%);
+}
+
+.invitation-envelope__fold {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  pointer-events: none;
+  filter: drop-shadow(0 0 1px rgba(82, 73, 57, .08));
+}
+
+.invitation-envelope__fold--left {
+  clip-path: polygon(0 0, 54% 51%, 0 100%);
+  background: linear-gradient(145deg, #f7f1e7 0%, #eee5d7 100%);
+}
+
+.invitation-envelope__fold--right {
+  clip-path: polygon(100% 0, 46% 51%, 100% 100%);
+  background: linear-gradient(215deg, #f8f3ea 0%, #ece2d3 100%);
+}
+
+.invitation-envelope__fold--bottom {
+  z-index: 3;
+  clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+  background: linear-gradient(180deg, #f8f3e9 0%, #eee4d5 100%);
+  filter: drop-shadow(0 -1px 1px rgba(91, 80, 60, .07));
+}
+
+.invitation-envelope__front {
+  display: none;
+}
+
+.invitation-envelope__flap {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: block;
+  border: 0;
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 0, 50% 57%);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.58), transparent 58%),
+    linear-gradient(155deg, #faf6ee 0%, #eee5d7 100%);
+  transform-origin: 50% 0;
+  backface-visibility: hidden;
+  filter: drop-shadow(0 2px 2px rgba(91, 80, 60, .08));
+  transition: transform 800ms cubic-bezier(.3,.03,.2,1);
+}
+
+.invitation-envelope__seal {
+  position: absolute;
+  z-index: 8;
+  top: 50.5%;
+  left: 50%;
+  width: 86px;
+  height: 86px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255,255,255,.22), transparent 24%),
+    radial-gradient(circle at 50% 55%, #536c50 0%, #3e5741 65%, #314538 100%);
+  color: #f9f4e8;
+  box-shadow:
+    0 10px 22px rgba(48, 59, 45, .28),
+    inset 0 0 0 4px rgba(245, 230, 198, .18),
+    inset 0 0 0 7px rgba(44, 67, 50, .45);
+  clip-path: polygon(50% 0%, 59% 5%, 68% 2%, 75% 9%, 85% 9%, 90% 18%, 98% 23%, 97% 34%, 100% 43%, 95% 52%, 98% 62%, 91% 70%, 90% 80%, 80% 84%, 74% 93%, 64% 92%, 55% 100%, 46% 95%, 36% 99%, 29% 91%, 19% 90%, 15% 81%, 6% 76%, 7% 66%, 0% 58%, 5% 49%, 1% 39%, 7% 31%, 5% 21%, 15% 16%, 20% 7%, 31% 8%, 40% 1%);
+  transform: translate(-50%, -50%);
+  transition: opacity 260ms ease, transform 420ms cubic-bezier(.2,.72,.2,1);
+}
+
+.invitation-envelope__seal::before {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  border: 1px solid rgba(238, 222, 189, .42);
+  border-radius: 50%;
+}
+
+.invitation-envelope__seal b {
+  top: 17px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.invitation-envelope__seal em {
+  bottom: 17px;
+  font-size: 6px;
+  letter-spacing: .2em;
+}
+
+.invitation-envelope__hint {
+  position: absolute;
+  z-index: 9;
+  left: 50%;
+  bottom: clamp(32px, 6vh, 66px);
+  display: block;
+  padding: 10px 16px;
+  color: rgba(48, 72, 55, .82);
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .28em;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  animation: invitationHint 1.8s ease-in-out infinite;
+  transition: opacity 260ms ease;
+}
+
+.invitation-envelope__hint::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  width: 42px;
+  height: 1px;
+  background: rgba(184, 139, 77, .45);
+  transform: translateX(-50%);
+}
+
+@keyframes invitationHint {
+  0%, 100% { opacity: .62; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+}
+
+.invitation-gate.is-opening .invitation-envelope__flap {
+  transform: rotateX(180deg);
+}
+
+.invitation-gate.is-opening .invitation-envelope__seal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.72) rotate(-8deg);
+}
+
+.invitation-gate.is-opening .invitation-envelope__hint {
+  opacity: 0;
+  animation: none;
+}
+
+.invitation-gate.is-opening .invitation-gate__safari {
+  opacity: .18;
+  transform: translateX(-50%) scale(1.04);
+}
+
+@media (max-width: 700px) {
+  .invitation-gate__safari {
+    bottom: -1px;
+    width: 138vw;
+    opacity: .48;
+  }
+
+  .invitation-envelope__flap {
+    clip-path: polygon(0 0, 100% 0, 50% 50%);
+  }
+
+  .invitation-envelope__fold--left {
+    clip-path: polygon(0 0, 54% 48%, 0 100%);
+  }
+
+  .invitation-envelope__fold--right {
+    clip-path: polygon(100% 0, 46% 48%, 100% 100%);
+  }
+
+  .invitation-envelope__fold--bottom {
+    clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+  }
+
+  .invitation-envelope__seal {
+    top: 47.5%;
+    width: 76px;
+    height: 76px;
+  }
+
+  .invitation-envelope__seal b {
+    top: 15px;
+    font-size: 28px;
+  }
+
+  .invitation-envelope__seal em {
+    bottom: 14px;
+  }
+
+  .invitation-envelope__hint {
+    bottom: 24px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 430px) and (max-height: 800px) {
+  .invitation-gate__safari {
+    width: 132vw;
+    bottom: -6px;
+  }
+
+  .invitation-envelope__seal {
+    top: 46%;
+    width: 70px;
+    height: 70px;
+  }
+
+  .invitation-envelope__seal b {
+    top: 13px;
+    font-size: 26px;
+  }
+
+  .invitation-envelope__seal em {
+    bottom: 13px;
+  }
+}
+
+/* ===== Refinamento final: envelope físico safari ===== */
+.invitation-gate {
+  padding: 0;
+  background: #f6f0e5;
+  isolation: isolate;
+}
+
+.invitation-gate::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  z-index: 11;
+  border: 1px solid rgba(91, 80, 60, .10);
+  pointer-events: none;
+}
+
+.invitation-gate__content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  max-width: none;
+  display: block;
+}
+
+.invitation-gate__content::before {
+  content: "";
+  position: absolute;
+  z-index: 7;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(180px, 31vw, 350px);
+  pointer-events: none;
+  opacity: .58;
+  background-image: url("assets/foliage-top.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  filter: saturate(.78) sepia(.02) brightness(1.04);
+}
+
+.invitation-gate__content::after {
+  content: none;
+}
+
+.invitation-gate__safari {
+  z-index: 7;
+  bottom: -4px;
+  width: min(1180px, 104vw);
+  opacity: .78;
+  filter: saturate(.82) sepia(.04) brightness(1.06);
+}
+
+.invitation-envelope {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0;
+  background: transparent;
+  perspective: 1800px;
+}
+
+.invitation-envelope__back {
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255,255,255,.88), transparent 34%),
+    linear-gradient(180deg, #fbf8f0 0%, #f1eadf 100%);
+}
+
+.invitation-envelope__fold--left {
+  z-index: 2;
+  clip-path: polygon(0 4%, 52% 50%, 0 96%);
+  background: linear-gradient(145deg, #faf6ee 0%, #eee5d7 68%, #e6dac8 100%);
+  filter: drop-shadow(2px 0 2px rgba(100, 85, 62, .08));
+}
+
+.invitation-envelope__fold--right {
+  z-index: 2;
+  clip-path: polygon(100% 4%, 48% 50%, 100% 96%);
+  background: linear-gradient(215deg, #faf6ee 0%, #eee5d7 68%, #e6dac8 100%);
+  filter: drop-shadow(-2px 0 2px rgba(100, 85, 62, .08));
+}
+
+.invitation-envelope__fold--bottom {
+  z-index: 4;
+  clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.42), transparent 24%),
+    linear-gradient(180deg, #f8f3e9 0%, #ebe0d0 100%);
+  filter: drop-shadow(0 -2px 2px rgba(100, 85, 62, .07));
+}
+
+.invitation-envelope__flap {
+  z-index: 6;
+  clip-path: polygon(0 0, 100% 0, 50% 52%);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.68), transparent 56%),
+    linear-gradient(155deg, #fcf9f2 0%, #efe6d8 100%);
+  filter: drop-shadow(0 3px 3px rgba(92, 76, 54, .10));
+  transition: transform 820ms cubic-bezier(.3,.03,.2,1);
+}
+
+.invitation-envelope__seal {
+  z-index: 9;
+  top: 50%;
+  width: 88px;
+  height: 88px;
+  background:
+    radial-gradient(circle at 34% 26%, rgba(255,255,255,.20), transparent 21%),
+    radial-gradient(circle at 50% 58%, #567154 0%, #405a43 64%, #304436 100%);
+  box-shadow:
+    0 11px 24px rgba(47, 60, 46, .26),
+    inset 0 0 0 4px rgba(246, 230, 194, .16),
+    inset 0 0 0 7px rgba(38, 64, 47, .43);
+}
+
+.invitation-envelope__seal::after {
+  content: "";
+  position: absolute;
+  inset: 15px;
+  border: 1px dashed rgba(239, 222, 186, .18);
+  border-radius: 50%;
+}
+
+.invitation-envelope__hint {
+  z-index: 10;
+  bottom: clamp(28px, 5.2vh, 56px);
+  padding-bottom: 13px;
+  letter-spacing: .30em;
+  text-shadow: 0 1px rgba(255,255,255,.55);
+}
+
+.invitation-envelope__hint::after {
+  background: linear-gradient(90deg, transparent, rgba(184,139,77,.65), transparent);
+}
+
+@media (max-width: 700px) {
+  .invitation-gate::after {
+    inset: 7px;
+  }
+
+  .invitation-gate__content::before {
+    top: 0;
+    width: 100%;
+    height: 190px;
+    opacity: .62;
+    background-size: 128% auto;
+    background-position: top center;
+  }
+
+  .invitation-gate__safari {
+    width: 112vw;
+    bottom: -3px;
+    opacity: .87;
+  }
+
+  .invitation-envelope__flap {
+    clip-path: polygon(0 0, 100% 0, 50% 48%);
+  }
+
+  .invitation-envelope__fold--left {
+    clip-path: polygon(0 5%, 54% 47%, 0 96%);
+  }
+
+  .invitation-envelope__fold--right {
+    clip-path: polygon(100% 5%, 46% 47%, 100% 96%);
+  }
+
+  .invitation-envelope__fold--bottom {
+    clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+  }
+
+  .invitation-envelope__seal {
+    top: 46.8%;
+    width: 76px;
+    height: 76px;
+  }
+
+  .invitation-envelope__hint {
+    bottom: 22px;
+  }
+}
+
+@media (max-width: 430px) and (max-height: 800px) {
+  .invitation-gate__content::before {
+    height: 168px;
+    background-size: 136% auto;
+    opacity: .58;
+  }
+
+  .invitation-gate__safari {
+    width: 108vw;
+    bottom: -5px;
+  }
+
+  .invitation-envelope__seal {
+    top: 45.5%;
+    width: 70px;
+    height: 70px;
   }
 }
