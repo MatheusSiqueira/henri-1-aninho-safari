@@ -54,6 +54,31 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
+const safariTrigger = document.querySelector("#safari-trigger");
+const hero = document.querySelector(".hero");
+let safariTimer;
+
+function playSafariAnimation() {
+  if (!hero) return;
+
+  clearTimeout(safariTimer);
+  hero.classList.remove("is-safari-playing");
+  void hero.offsetWidth;
+  hero.classList.add("is-safari-playing");
+
+  safariTimer = setTimeout(() => {
+    hero.classList.remove("is-safari-playing");
+  }, 1250);
+}
+
+safariTrigger?.addEventListener("click", playSafariAnimation);
+safariTrigger?.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    playSafariAnimation();
+  }
+});
+
 document.querySelector("#download-ics")?.addEventListener("click", () => {
   const content = [
     "BEGIN:VCALENDAR",
