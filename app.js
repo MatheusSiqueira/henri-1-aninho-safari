@@ -1,5 +1,5 @@
-import { eventConfig } from './event-config.js?v=20261019-2';
-import { validDate, phoneNumber, safeMapUrl, whatsappUrl, calendarFile, remainingTime } from './event-utils.js?v=20261019-2';
+import { eventConfig } from './event-config.js?v=20261019-3';
+import { validDate, safeMapUrl, calendarFile, remainingTime } from './event-utils.js?v=20261019-3';
 
 const $ = selector => document.querySelector(selector);
 const photos = [
@@ -7,7 +7,6 @@ const photos = [
   { src: 'assets/henri-sorriso-960.webp', alt: 'Henri sorrindo com uma peruca verde e amarela e um casaquinho claro', caption: 'Um sorriso que é festa' },
 ];
 const photoDialog = $('#photo-dialog');
-const rsvpDialog = $('#rsvp-dialog');
 let currentPhoto = 0;
 let previousFocus = null;
 
@@ -74,7 +73,6 @@ function notify(message) {
 const startsAt = validDate(eventConfig.startsAt);
 const endsAt = validDate(eventConfig.endsAt);
 const allDayDate = /^\d{4}-\d{2}-\d{2}$/.test(eventConfig.allDayDate || '') ? new Date(`${eventConfig.allDayDate}T12:00:00Z`) : null;
-const phone = phoneNumber(eventConfig.whatsapp);
 let timeZone = eventConfig.timeZone || 'America/Campo_Grande';
 try { new Intl.DateTimeFormat('pt-BR', { timeZone }); } catch { timeZone = 'America/Campo_Grande'; }
 const format = (date, options) => new Intl.DateTimeFormat('pt-BR', { timeZone, ...options }).format(date);
@@ -137,33 +135,4 @@ $('#calendar-download').addEventListener('click', () => {
   link.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
   notify('Abra o arquivo baixado para adicionar a festa à sua agenda.');
-});
-
-if (phone && detailsComplete && !eventHasEnded()) {
-  $('#rsvp-pending').hidden = true;
-  $('#rsvp-ready').hidden = false;
-  const deadline = validDate(eventConfig.rsvpDeadline);
-  if (deadline) $('#rsvp-deadline').textContent = `Confirme até ${format(deadline, { day: 'numeric', month: 'long' })} pelo WhatsApp.`;
-} else if (eventHasEnded()) {
-  $('#rsvp-pending strong').textContent = 'Uma lembrança para sempre';
-  $('#rsvp-pending span').textContent = 'O primeiro aninho do Henri fica guardado com muito carinho.';
-}
-$('#rsvp-open').addEventListener('click', () => {
-  openDialog(rsvpDialog);
-  $('#guest-name').focus();
-});
-$('#rsvp-form').addEventListener('submit', event => {
-  event.preventDefault();
-  const name = $('#guest-name').value.trim();
-  const error = $('#form-error');
-  if (!name) {
-    error.textContent = 'Digite seu nome para continuar.';
-    error.hidden = false;
-    $('#guest-name').focus();
-    return;
-  }
-  const url = whatsappUrl(phone, name, $('#guest-companions').value);
-  if (!url) { error.textContent = 'A confirmação ainda não está disponível. Tente novamente mais tarde.'; error.hidden = false; return; }
-  error.hidden = true;
-  window.location.assign(url);
 });

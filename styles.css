@@ -38,3 +38,13 @@
 .hero-henri span{display:block;margin-top:6px;color:var(--red-dark);font:italic 12px/1.1 var(--serif);text-align:center}
 .hero-henri:focus-visible{outline:3px solid var(--green-dark);outline-offset:4px}
 @media(max-width:760px){.hero-henri{left:0;bottom:19px;width:112px;padding:4px 4px 7px}.hero-henri img{height:100px;border-width:2px}.hero-henri span{font-size:9px;margin-top:4px}}
+
+.party-info{max-width:1050px;margin:42px auto 0;padding:32px 36px;background:#f2f6e4;border:1px solid #cedab4;border-radius:16px}
+.party-info-heading h3{margin:10px 0 12px;font:700 30px/1.15 var(--serif);color:var(--green-dark)}
+.party-info-heading>p:last-child{max-width:760px;font-size:14px;line-height:1.75;color:var(--muted)}
+.festival-prices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0}
+.festival-prices>div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px;background:var(--paper);border:1px solid #e2d5b5;border-radius:10px}
+.festival-prices span{font-size:13px;font-weight:800}.festival-prices strong{white-space:nowrap;font:700 22px var(--serif);color:var(--red-dark)}
+.party-info-list{display:grid;gap:10px;padding:0;margin:0;list-style:none;font-size:13px;line-height:1.65;color:var(--ink)}
+.rsvp-ready .icon{width:20px;height:20px}
+@media(max-width:760px){.party-info{margin-top:28px;padding:24px 20px}.party-info-heading h3{font-size:27px}.party-info-heading>p:last-child{font-size:13px}.festival-prices{grid-template-columns:1fr;gap:9px;margin:19px 0}.festival-prices>div{padding:15px}.party-info-list{font-size:12px}}

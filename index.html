@@ -11,8 +11,8 @@
   <title>Henri faz 1 aninho — Fazenda do Zenon</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" as="image" href="assets/fazenda-capa.jpg">
-  <link rel="stylesheet" href="styles.css?v=20261019-2">
-  <script src="app.js?v=20261019-2" type="module"></script>
+  <link rel="stylesheet" href="styles.css?v=20261019-3">
+  <script src="app.js?v=20261019-3" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o convite</a>
@@ -29,6 +29,7 @@
       <symbol id="i-photo" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8" cy="9" r="1.5"/><path d="m4 18 5-5 4 4 3-3 5 5"/></symbol>
       <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v10H6V11"/><path d="M9 21v-7h6v7"/></symbol>
       <symbol id="i-wheat" viewBox="0 0 24 24"><path d="M12 22V5m0 5c-4 0-6-2-6-5 4 0 6 2 6 5Zm0 5c4 0 6-2 6-5-4 0-6 2-6 5Zm0 5c-4 0-6-2-6-5 4 0 6 2 6 5Z"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.4-4.8A8.5 8.5 0 1 1 20.5 11.6Z"/><path d="M8.6 8.2c.4-.4.8-.2 1 .2l.7 1.3c.1.3 0 .5-.3.8l-.4.4c.5 1.1 1.5 2.1 2.7 2.6l.4-.5c.2-.3.5-.4.8-.2l1.3.6c.4.2.5.5.3.9-.3.7-.9 1.1-1.7 1-2.9-.4-5.4-2.9-5.9-5.8-.1-.5.3-1 .7-1.3Z"/></symbol>
     </defs>
   </svg>
 
@@ -71,21 +72,26 @@
 
     <section class="party-section section-pad" id="festa" aria-labelledby="party-title">
       <div class="container">
-        <div class="section-heading"><p class="eyebrow">VOCÊ É NOSSO CONVIDADO ESPECIAL</p><h2 id="party-title">Puxe o banquinho,<br><em>a festança vai começar!</em></h2><p>Venha celebrar o primeiro aninho do Henri.<br>Na nossa fazenda, alegria boa é alegria compartilhada.</p></div>
+        <div class="section-heading"><p class="eyebrow">VOCÊ É NOSSO CONVIDADO ESPECIAL</p><h2 id="party-title">Puxe o banquinho,<br><em>a festança vai começar!</em></h2><p>Um aninho de muito amor, descobertas e bênçãos de Deus!<br>Queremos reunir nossa família e nossos amigos no Zitão Park para celebrar o primeiro aninho do nosso príncipe. Será um momento simples, mas cheio de carinho!</p></div>
         <div class="invitation-ticket">
           <div class="ticket-ribbon">CONVITE DA FAZENDA</div>
           <div class="ticket-main">
-            <div class="ticket-topline"><span>SEU LUGAR ESTÁ RESERVADO</span><span aria-hidden="true">🌽 🐮 🚜</span></div>
+            <div class="ticket-topline"><span>VENHA COMEMORAR COM A GENTE</span><span aria-hidden="true">🌽 🐮 🚜</span></div>
             <dl class="event-details">
               <div><dt><span class="detail-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>Quando</dt><dd id="event-date">10 de novembro</dd><dd class="detail-note" id="event-date-note">terça-feira, 2026</dd></div>
-              <div><dt><span class="detail-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>Horário</dt><dd id="event-time">A definir</dd><dd class="detail-note" id="event-time-note">O horário será informado aqui.</dd></div>
+              <div><dt><span class="detail-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>Horário</dt><dd id="event-time">19h</dd><dd class="detail-note" id="event-time-note">Horário local da festa.</dd></div>
               <div><dt><span class="detail-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>Onde</dt><dd id="event-venue">Zitão Park</dd><dd class="detail-note" id="event-address">Av. Monte Castelo, 36 — Monte Castelo, Campo Grande - MS</dd></div>
             </dl>
-            <div class="ticket-bottom"><span id="event-status"><span class="status-dot"></span> O horário será informado em breve.</span><div class="event-actions"><button class="text-link" type="button" id="calendar-download" hidden>Salvar na agenda <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><a class="text-link" id="map-link" target="_blank" rel="noopener noreferrer" hidden>Como chegar <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
+            <div class="ticket-bottom"><span id="event-status"><span class="status-dot"></span> Tudo pronto para festejar!</span><div class="event-actions"><button class="text-link" type="button" id="calendar-download" hidden>Salvar na agenda <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><a class="text-link" id="map-link" target="_blank" rel="noopener noreferrer" hidden>Como chegar <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
           </div>
           <div class="ticket-stub" aria-hidden="true"><span>ENTRADA</span><strong>1 abraço</strong><small>+ muitos sorrisos</small><div class="stub-stamp">H</div></div>
         </div>
         <div class="countdown" id="countdown" hidden><p id="countdown-label">Contando os dias para abrir a porteira...</p><div id="countdown-values"></div></div>
+        <div class="party-info" aria-labelledby="party-info-title">
+          <div class="party-info-heading"><p class="eyebrow">PARA PLANEJAR SUA VISITA</p><h3 id="party-info-title">Informações importantes</h3><p>Cada pessoa ficará responsável pelo seu próprio consumo no local. A participação é espontânea: venha se puder e quiser compartilhar esse momento conosco!</p></div>
+          <div class="festival-prices"><div><span>🍢 Festival de Petiscos</span><strong>R$ 39,70</strong></div><div><span>🍕 Festival de Pizzas</span><strong>R$ 64,70</strong></div></div>
+          <ul class="party-info-list"><li>🥂 Bebidas não inclusas no festival.</li><li>🧒 Crianças até 4 anos não pagam; de 5 a 8 anos pagam meio festival.</li><li>🧸 Espaço Kids: de 1 a 12 anos, R$ 19,70 por criança, com tempo livre.</li></ul>
+        </div>
       </div>
     </section>
 
@@ -115,7 +121,7 @@
 
     <section class="rsvp-section" id="presenca" aria-labelledby="rsvp-title">
       <div class="barn-roof" aria-hidden="true"></div>
-      <div class="container rsvp-inner"><span class="heart-medallion"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span><p class="eyebrow">A PORTEIRA ESTÁ ABERTA</p><h2 id="rsvp-title">A fazenda fica mais feliz<br><em>com você por perto.</em></h2><p>Conte para a gente se você vem celebrar<br>esse dia tão especial com o Henri.</p><div class="rsvp-pending" id="rsvp-pending"><strong>Confirmação em breve</strong><span>Assim que os detalhes da festa estiverem prontos, você poderá confirmar por aqui.</span></div><div class="rsvp-ready" id="rsvp-ready" hidden><button class="button button-cream" type="button" id="rsvp-open">Confirmar minha presença <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><p class="rsvp-help" id="rsvp-deadline">A confirmação será enviada pelo WhatsApp.</p></div><p class="sign-off">Esperamos você de braços abertos! 🌻</p></div>
+      <div class="container rsvp-inner"><span class="heart-medallion"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span><p class="eyebrow">A PORTEIRA ESTÁ ABERTA</p><h2 id="rsvp-title">A fazenda fica mais feliz<br><em>com você por perto.</em></h2><p>Conte para a gente se você vem celebrar<br>esse dia tão especial com o Henri.</p><div class="rsvp-ready"><a class="button button-cream" id="rsvp-whatsapp" href="https://wa.me/5567992412665?text=Ol%C3%A1!%20Quero%20confirmar%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20do%20Henri." target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Confirmar pelo WhatsApp</a><p class="rsvp-help">Confirme até 21/10/2026 para ajudarmos na reserva.</p></div><p class="sign-off">Esperamos você de braços abertos! 🌻</p></div>
       <div class="fence" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
     </section>
   </main>
@@ -125,8 +131,6 @@
   <nav class="mobile-bottom-nav" aria-label="Navegação rápida"><a href="#inicio" class="is-active"><svg class="icon"><use href="#i-home"/></svg><span>Início</span></a><a href="#festa"><svg class="icon"><use href="#i-calendar"/></svg><span>Festa</span></a><a href="#fazenda"><svg class="icon"><use href="#i-wheat"/></svg><span>Turminha</span></a><a href="#presenca"><svg class="icon"><use href="#i-heart"/></svg><span>Presença</span></a></nav>
 
   <dialog class="photo-dialog" id="photo-dialog" aria-label="Fotos do Henri"><div class="photo-dialog-shell"><button class="round-button dialog-close" type="button" aria-label="Fechar foto"><svg class="icon"><use href="#i-close"/></svg></button><img id="dialog-photo" src="assets/henri-explorador-960.webp" alt=""><div class="photo-dialog-bottom"><button class="round-button reverse" type="button" id="photo-prev" aria-label="Foto anterior"><svg class="icon"><use href="#i-arrow"/></svg></button><p id="photo-caption"></p><button class="round-button" type="button" id="photo-next" aria-label="Próxima foto"><svg class="icon"><use href="#i-arrow"/></svg></button></div></div></dialog>
-
-  <dialog class="rsvp-dialog" id="rsvp-dialog" aria-labelledby="rsvp-dialog-title"><button class="round-button dialog-close" type="button" aria-label="Fechar confirmação"><svg class="icon"><use href="#i-close"/></svg></button><p class="eyebrow">CONFIRMAÇÃO DE PRESENÇA</p><h2 id="rsvp-dialog-title">Vamos para a fazenda?</h2><p>Preencha seu nome e abriremos uma mensagem pronta no WhatsApp.</p><form id="rsvp-form"><label for="guest-name">Seu nome</label><input id="guest-name" name="name" autocomplete="name" required><label for="guest-companions">Quem vai com você? <span>(opcional)</span></label><textarea id="guest-companions" name="companions" rows="3" placeholder="Ex.: Ana e Pedro"></textarea><p class="form-error" id="form-error" role="alert" hidden></p><button class="button button-primary" type="submit">Continuar no WhatsApp <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><p class="form-privacy">Nada é enviado sem a sua confirmação no WhatsApp.</p></form></dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   <noscript><p class="noscript-message">Ative o JavaScript para usar a agenda e a confirmação de presença.</p></noscript>
