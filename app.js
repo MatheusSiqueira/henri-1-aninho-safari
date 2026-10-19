@@ -1,5 +1,5 @@
-import { eventConfig } from './event-config.js?v=20261019-4';
-import { validDate, safeMapUrl, calendarFile, remainingTime, whatsappUrl } from './event-utils.js?v=20261019-4';
+import { eventConfig } from './event-config.js?v=20261019-5';
+import { validDate, safeMapUrl, calendarFile, remainingTime, whatsappUrl } from './event-utils.js?v=20261019-5';
 
 const $ = selector => document.querySelector(selector);
 const photos = [
@@ -51,6 +51,16 @@ $('#rsvp-whatsapp').addEventListener('click', event => {
   $('#form-error').hidden = true;
   openDialog(rsvpDialog);
   $('#guest-name').focus();
+});
+
+document.querySelectorAll('.count-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const input = document.getElementById(button.dataset.counter);
+    const current = Number(input.value);
+    const validCurrent = input.value !== '' && Number.isInteger(current) ? current : 0;
+    input.value = String(Math.max(0, Math.min(99, validCurrent + Number(button.dataset.change))));
+    $('#form-error').hidden = true;
+  });
 });
 
 $('#rsvp-form').addEventListener('submit', event => {

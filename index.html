@@ -11,8 +11,8 @@
   <title>Henri faz 1 aninho — Fazenda do Zenon</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" as="image" href="assets/fazenda-capa.jpg">
-  <link rel="stylesheet" href="styles.css?v=20261019-4">
-  <script src="app.js?v=20261019-4" type="module"></script>
+  <link rel="stylesheet" href="styles.css?v=20261019-5">
+  <script src="app.js?v=20261019-5" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o convite</a>
@@ -121,7 +121,7 @@
 
     <section class="rsvp-section" id="presenca" aria-labelledby="rsvp-title">
       <div class="barn-roof" aria-hidden="true"></div>
-      <div class="container rsvp-inner"><span class="heart-medallion"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span><p class="eyebrow">A PORTEIRA ESTÁ ABERTA</p><h2 id="rsvp-title">A fazenda fica mais feliz<br><em>com você por perto.</em></h2><p>Conte para a gente se você vem celebrar<br>esse dia tão especial com o Henri.</p><div class="rsvp-ready"><a class="button button-cream" id="rsvp-whatsapp" href="https://wa.me/5567992412665?text=Ol%C3%A1!%20Quero%20confirmar%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20do%20Henri." target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Confirmar pelo WhatsApp</a><p class="rsvp-help">Confirme até 21/10/2026 para ajudarmos na reserva.</p></div><p class="sign-off">Esperamos você de braços abertos! 🌻</p></div>
+      <div class="container rsvp-inner"><span class="heart-medallion"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span><p class="eyebrow">A PORTEIRA ESTÁ ABERTA</p><h2 id="rsvp-title">A fazenda fica mais feliz<br><em>com você por perto.</em></h2><p>Conte para a gente se você vem celebrar<br>esse dia tão especial com o Henri.</p><div class="rsvp-ready"><a class="button button-cream" id="rsvp-whatsapp" href="https://wa.me/5567992412665?text=Ol%C3%A1!%20Quero%20confirmar%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20do%20Henri." target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Confirmar pelo WhatsApp</a><p class="rsvp-help"><strong>Confirme até 21/10/2026</strong><span>Precisamos do número de pessoas para fazer a reserva.</span></p></div><p class="sign-off">Esperamos você de braços abertos! 🌻</p></div>
       <div class="fence" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
     </section>
   </main>
@@ -141,8 +141,8 @@
       <label for="guest-name">Seu nome <span>(opcional)</span></label>
       <input id="guest-name" name="name" autocomplete="name" maxlength="100" placeholder="Como podemos chamar você?">
       <div class="guest-counts">
-        <div><label for="guest-adults">Adultos</label><input id="guest-adults" name="adults" type="number" inputmode="numeric" min="0" max="99" step="1" value="1" required></div>
-        <div><label for="guest-children">Crianças</label><input id="guest-children" name="children" type="number" inputmode="numeric" min="0" max="99" step="1" value="0" required></div>
+        <div><label for="guest-adults">Adultos</label><div class="guest-counter"><button type="button" class="count-button" data-counter="guest-adults" data-change="-1" aria-label="Diminuir quantidade de adultos">−</button><input id="guest-adults" name="adults" type="number" inputmode="numeric" min="0" max="99" step="1" value="1" required><button type="button" class="count-button" data-counter="guest-adults" data-change="1" aria-label="Aumentar quantidade de adultos">+</button></div></div>
+        <div><label for="guest-children">Crianças</label><div class="guest-counter"><button type="button" class="count-button" data-counter="guest-children" data-change="-1" aria-label="Diminuir quantidade de crianças">−</button><input id="guest-children" name="children" type="number" inputmode="numeric" min="0" max="99" step="1" value="0" required><button type="button" class="count-button" data-counter="guest-children" data-change="1" aria-label="Aumentar quantidade de crianças">+</button></div></div>
       </div>
       <p class="form-error" id="form-error" role="alert" hidden></p>
       <button class="button button-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Continuar no WhatsApp</button>
