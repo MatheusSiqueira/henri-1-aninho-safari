@@ -11,8 +11,8 @@
   <title>Henri faz 1 aninho — Fazenda do Zenon</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" as="image" href="assets/fazenda-capa.jpg">
-  <link rel="stylesheet" href="styles.css?v=20261019-3">
-  <script src="app.js?v=20261019-3" type="module"></script>
+  <link rel="stylesheet" href="styles.css?v=20261019-4">
+  <script src="app.js?v=20261019-4" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o convite</a>
@@ -131,6 +131,24 @@
   <nav class="mobile-bottom-nav" aria-label="Navegação rápida"><a href="#inicio" class="is-active"><svg class="icon"><use href="#i-home"/></svg><span>Início</span></a><a href="#festa"><svg class="icon"><use href="#i-calendar"/></svg><span>Festa</span></a><a href="#fazenda"><svg class="icon"><use href="#i-wheat"/></svg><span>Turminha</span></a><a href="#presenca"><svg class="icon"><use href="#i-heart"/></svg><span>Presença</span></a></nav>
 
   <dialog class="photo-dialog" id="photo-dialog" aria-label="Fotos do Henri"><div class="photo-dialog-shell"><button class="round-button dialog-close" type="button" aria-label="Fechar foto"><svg class="icon"><use href="#i-close"/></svg></button><img id="dialog-photo" src="assets/henri-explorador-960.webp" alt=""><div class="photo-dialog-bottom"><button class="round-button reverse" type="button" id="photo-prev" aria-label="Foto anterior"><svg class="icon"><use href="#i-arrow"/></svg></button><p id="photo-caption"></p><button class="round-button" type="button" id="photo-next" aria-label="Próxima foto"><svg class="icon"><use href="#i-arrow"/></svg></button></div></div></dialog>
+
+  <dialog class="rsvp-dialog" id="rsvp-dialog" aria-labelledby="rsvp-dialog-title" aria-describedby="rsvp-dialog-description">
+    <button class="round-button dialog-close" type="button" aria-label="Fechar confirmação"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <p class="eyebrow">CONFIRMAÇÃO DE PRESENÇA</p>
+    <h2 id="rsvp-dialog-title">Vamos celebrar juntos?</h2>
+    <p id="rsvp-dialog-description">Conte quantas pessoas virão. Inclua você na quantidade de adultos ou crianças.</p>
+    <form id="rsvp-form">
+      <label for="guest-name">Seu nome <span>(opcional)</span></label>
+      <input id="guest-name" name="name" autocomplete="name" maxlength="100" placeholder="Como podemos chamar você?">
+      <div class="guest-counts">
+        <div><label for="guest-adults">Adultos</label><input id="guest-adults" name="adults" type="number" inputmode="numeric" min="0" max="99" step="1" value="1" required></div>
+        <div><label for="guest-children">Crianças</label><input id="guest-children" name="children" type="number" inputmode="numeric" min="0" max="99" step="1" value="0" required></div>
+      </div>
+      <p class="form-error" id="form-error" role="alert" hidden></p>
+      <button class="button button-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Continuar no WhatsApp</button>
+      <p class="form-privacy">Uma mensagem será preparada no WhatsApp. Você decide quando enviá-la.</p>
+    </form>
+  </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   <noscript><p class="noscript-message">Ative o JavaScript para usar a agenda e a confirmação de presença.</p></noscript>

@@ -48,3 +48,5 @@
 .party-info-list{display:grid;gap:10px;padding:0;margin:0;list-style:none;font-size:13px;line-height:1.65;color:var(--ink)}
 .rsvp-ready .icon{width:20px;height:20px}
 @media(max-width:760px){.party-info{margin-top:28px;padding:24px 20px}.party-info-heading h3{font-size:27px}.party-info-heading>p:last-child{font-size:13px}.festival-prices{grid-template-columns:1fr;gap:9px;margin:19px 0}.festival-prices>div{padding:15px}.party-info-list{font-size:12px}}
+
+.guest-counts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.rsvp-dialog input:focus-visible,.rsvp-dialog button:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}.rsvp-dialog .button .icon{width:20px;height:20px}

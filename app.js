@@ -1,5 +1,5 @@
-import { eventConfig } from './event-config.js?v=20261019-3';
-import { validDate, safeMapUrl, calendarFile, remainingTime } from './event-utils.js?v=20261019-3';
+import { eventConfig } from './event-config.js?v=20261019-4';
+import { validDate, safeMapUrl, calendarFile, remainingTime, whatsappUrl } from './event-utils.js?v=20261019-4';
 
 const $ = selector => document.querySelector(selector);
 const photos = [
@@ -7,6 +7,7 @@ const photos = [
   { src: 'assets/henri-sorriso-960.webp', alt: 'Henri sorrindo com uma peruca verde e amarela e um casaquinho claro', caption: 'Um sorriso que é festa' },
 ];
 const photoDialog = $('#photo-dialog');
+const rsvpDialog = $('#rsvp-dialog');
 let currentPhoto = 0;
 let previousFocus = null;
 
@@ -43,6 +44,33 @@ document.querySelectorAll('dialog').forEach(dialog => {
     document.body.classList.remove('dialog-open');
     previousFocus?.focus({ preventScroll: true });
   });
+});
+
+$('#rsvp-whatsapp').addEventListener('click', event => {
+  event.preventDefault();
+  $('#form-error').hidden = true;
+  openDialog(rsvpDialog);
+  $('#guest-name').focus();
+});
+
+$('#rsvp-form').addEventListener('submit', event => {
+  event.preventDefault();
+  const adults = Number($('#guest-adults').value);
+  const children = Number($('#guest-children').value);
+  const error = $('#form-error');
+  if (!Number.isInteger(adults) || !Number.isInteger(children) || adults < 0 || children < 0 || adults > 99 || children > 99 || adults + children === 0) {
+    error.textContent = 'Informe pelo menos uma pessoa, usando quantidades inteiras de 0 a 99.';
+    error.hidden = false;
+    return;
+  }
+  const url = whatsappUrl(eventConfig.whatsapp, $('#guest-name').value, adults, children);
+  if (!url) {
+    error.textContent = 'Não foi possível preparar a confirmação. Tente novamente mais tarde.';
+    error.hidden = false;
+    return;
+  }
+  error.hidden = true;
+  window.location.assign(url);
 });
 
 const mobileLinks = [...document.querySelectorAll('.mobile-bottom-nav a')];

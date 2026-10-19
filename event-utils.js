@@ -19,11 +19,11 @@ export function safeMapUrl(value, address) {
   return url.href;
 }
 
-export function whatsappUrl(phone, name, companions) {
-  if (!phoneNumber(phone) || !name.trim()) return null;
-  let message = `Olá! Sou ${name.trim()} e quero confirmar minha presença no aniversário de 1 aninho do Henri. 🐮🌻`;
-  if (companions.trim()) message += `\nVou com: ${companions.trim()}.`;
-  message += '\nEstamos felizes em fazer parte dessa festança na Fazenda do Zenon!';
+export function whatsappUrl(phone, name, adults, children) {
+  if (!phoneNumber(phone) || !Number.isInteger(adults) || !Number.isInteger(children) || adults < 0 || children < 0 || adults > 99 || children > 99 || adults + children === 0) return null;
+  const guestName = typeof name === 'string' ? name.trim() : '';
+  let message = `Olá!${guestName ? ` Sou ${guestName}.` : ''} Quero confirmar presença no aniversário de 1 aninho do Henri! 🎈`;
+  message += `\nSeremos ${adults} ${adults === 1 ? 'adulto' : 'adultos'} e ${children} ${children === 1 ? 'criança' : 'crianças'}.`;
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
 
