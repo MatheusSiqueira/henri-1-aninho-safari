@@ -31,3 +31,10 @@
 @media(max-width:370px){.container{width:calc(100% - 28px)}.hero h1 span{font-size:82px}.hero h1 strong{font-size:40px}.hero-scene{padding-left:48px}.hero-image-card img{height:340px}.wood-sign{left:-4px}.age-rosette{right:-3px}.section-heading h2,.farm-copy h2,.moments-copy h2{font-size:36px}.ticket-main{padding-inline:17px}.hero-actions .button{min-width:230px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.polaroid button:hover img{transform:none}}
 @media print{.announcement,.site-header,.mobile-bottom-nav,.hero-actions,.ticket-bottom,.back-top,dialog,.toast{display:none!important}.hero{min-height:0}.hero-inner{min-height:0;grid-template-columns:1fr 1fr}.section-pad{padding:40px 0}.invitation-ticket,.farm-image-wrap{break-inside:avoid}.rsvp-section{margin-top:0}.site-footer{padding-bottom:0}}
+
+[hidden]{display:none!important}
+.hero-henri{position:absolute;z-index:5;left:9px;bottom:31px;width:150px;padding:6px 6px 9px;border:2px solid #d8c496;border-radius:48% 48% 14px 14px;background:#fff9e9;box-shadow:0 9px 20px #3b2c1d40;transform:rotate(-7deg);cursor:pointer}
+.hero-henri img{width:100%;height:134px;object-fit:cover;object-position:center 34%;border-radius:50%;border:3px solid var(--yellow)}
+.hero-henri span{display:block;margin-top:6px;color:var(--red-dark);font:italic 12px/1.1 var(--serif);text-align:center}
+.hero-henri:focus-visible{outline:3px solid var(--green-dark);outline-offset:4px}
+@media(max-width:760px){.hero-henri{left:0;bottom:19px;width:112px;padding:4px 4px 7px}.hero-henri img{height:100px;border-width:2px}.hero-henri span{font-size:9px;margin-top:4px}}

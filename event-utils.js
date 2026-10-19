@@ -46,11 +46,19 @@ function foldLine(line) {
 
 export function calendarFile(config, now = new Date()) {
   const start = validDate(config.startsAt);
-  if (!start) return null;
+  const allDay = /^\d{4}-\d{2}-\d{2}$/.test(config.allDayDate || '') ? new Date(`${config.allDayDate}T00:00:00Z`) : null;
+  if (!start && (!allDay || Number.isNaN(allDay.getTime()))) return null;
   const end = validDate(config.endsAt);
   const stamp = date => date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Henri//Fazenda do Zenon//PT-BR', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', 'BEGIN:VEVENT', `UID:henri-fazenda-do-zenon-${stamp(start)}`, `DTSTAMP:${stamp(now)}`, `DTSTART:${stamp(start)}`];
-  if (end && end > start) lines.push(`DTEND:${stamp(end)}`);
+  const eventDate = start || allDay;
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Henri//Fazenda do Zenon//PT-BR', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', 'BEGIN:VEVENT', `UID:henri-fazenda-do-zenon-${stamp(eventDate)}`, `DTSTAMP:${stamp(now)}`];
+  if (start) {
+    lines.push(`DTSTART:${stamp(start)}`);
+    if (end && end > start) lines.push(`DTEND:${stamp(end)}`);
+  } else {
+    const nextDay = new Date(allDay.getTime() + 86400000);
+    lines.push(`DTSTART;VALUE=DATE:${stamp(allDay).slice(0, 8)}`, `DTEND;VALUE=DATE:${stamp(nextDay).slice(0, 8)}`);
+  }
   lines.push('SUMMARY:Henri faz 1 aninho — Fazenda do Zenon', `LOCATION:${calendarEscape([config.venueName, config.address].filter(Boolean).join(' — '))}`, 'DESCRIPTION:Vamos celebrar o primeiro aninho do Henri com a turma da fazenda!', 'END:VEVENT', 'END:VCALENDAR');
   return lines.map(foldLine).join('\r\n') + '\r\n';
 }

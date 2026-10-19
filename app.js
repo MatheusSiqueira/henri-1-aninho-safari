@@ -1,5 +1,5 @@
-import { eventConfig } from './event-config.js';
-import { validDate, phoneNumber, safeMapUrl, whatsappUrl, calendarFile, remainingTime } from './event-utils.js';
+import { eventConfig } from './event-config.js?v=20261019-2';
+import { validDate, phoneNumber, safeMapUrl, whatsappUrl, calendarFile, remainingTime } from './event-utils.js?v=20261019-2';
 
 const $ = selector => document.querySelector(selector);
 const photos = [
@@ -73,6 +73,7 @@ function notify(message) {
 
 const startsAt = validDate(eventConfig.startsAt);
 const endsAt = validDate(eventConfig.endsAt);
+const allDayDate = /^\d{4}-\d{2}-\d{2}$/.test(eventConfig.allDayDate || '') ? new Date(`${eventConfig.allDayDate}T12:00:00Z`) : null;
 const phone = phoneNumber(eventConfig.whatsapp);
 let timeZone = eventConfig.timeZone || 'America/Campo_Grande';
 try { new Intl.DateTimeFormat('pt-BR', { timeZone }); } catch { timeZone = 'America/Campo_Grande'; }
@@ -80,6 +81,11 @@ const format = (date, options) => new Intl.DateTimeFormat('pt-BR', { timeZone, .
 const eventHasEnded = () => startsAt && (endsAt && endsAt > startsAt ? Date.now() >= endsAt.getTime() : Date.now() > startsAt.getTime() + 86400000);
 const detailsComplete = Boolean(startsAt && eventConfig.venueName && eventConfig.address);
 
+if (!startsAt && allDayDate && !Number.isNaN(allDayDate.getTime())) {
+  $('#event-date').textContent = format(allDayDate, { day: 'numeric', month: 'long' });
+  $('#event-date-note').textContent = format(allDayDate, { weekday: 'long', year: 'numeric' });
+  $('#calendar-download').hidden = false;
+}
 if (startsAt) {
   $('#event-date').textContent = format(startsAt, { day: 'numeric', month: 'long' });
   $('#event-date-note').textContent = format(startsAt, { weekday: 'long', year: 'numeric' });
