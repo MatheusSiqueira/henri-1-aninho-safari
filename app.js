@@ -1,10 +1,23 @@
-import { eventConfig } from './event-config.js?v=20261019-5';
-import { validDate, safeMapUrl, calendarFile, remainingTime, whatsappUrl } from './event-utils.js?v=20261019-5';
+import { eventConfig } from './event-config.js?v=20261019-6';
+import { validDate, safeMapUrl, calendarFile, remainingTime, whatsappUrl } from './event-utils.js?v=20261019-6';
 
 const $ = selector => document.querySelector(selector);
 const photos = [
   { src: 'assets/henri-explorador-960.webp', alt: 'Henri sorrindo ao ar livre com seu chapéu azul de ursinho', caption: 'Pequeno fazendeiro' },
   { src: 'assets/henri-sorriso-960.webp', alt: 'Henri sorrindo com uma peruca verde e amarela e um casaquinho claro', caption: 'Um sorriso que é festa' },
+  { src: 'assets/galeria-henri-01.jpg', alt: 'Henri sorrindo com roupa vermelha e preta do Flamengo', caption: 'Sorriso de campeão' },
+  { src: 'assets/galeria-henri-02.jpg', alt: 'Henri bebê dormindo com roupa verde', caption: 'Um soninho cheio de amor' },
+  { src: 'assets/galeria-henri-03.jpg', alt: 'Henri vestido de caubói ao lado do bolo de cinco meses', caption: 'Nosso pequeno caubói' },
+  { src: 'assets/galeria-henri-04.jpg', alt: 'Henri com macacão vermelho e preto do Flamengo', caption: 'Pequeno torcedor' },
+  { src: 'assets/galeria-henri-05.jpg', alt: 'Henri sorrindo no aquário de mãos dadas com uma mulher', caption: 'Um passeio especial' },
+  { src: 'assets/galeria-henri-06.jpg', alt: 'Henri sorrindo com camiseta verde listrada', caption: 'Esse sorriso!' },
+  { src: 'assets/galeria-henri-07.jpg', alt: 'Henri no colo de uma mulher em frente ao espelho', caption: 'Colinho e carinho' },
+  { src: 'assets/galeria-henri-08.jpg', alt: 'Henri cortando o cabelo na barbearia', caption: 'Dia de cortar o cabelo' },
+  { src: 'assets/galeria-henri-09.jpg', alt: 'Henri sentado brincando com água no quintal', caption: 'Brincadeira no quintal' },
+  { src: 'assets/galeria-henri-10.jpg', alt: 'Henri sorrindo sentado no sofá', caption: 'Alegria que contagia' },
+  { src: 'assets/galeria-henri-11.jpg', alt: 'Henri no colo de uma mulher ao lado de um homem em frente ao espelho', caption: 'Juntinhos' },
+  { src: 'assets/galeria-henri-12.jpg', alt: 'Henri brincando em um triciclo azul', caption: 'Hora de brincar' },
+  { src: 'assets/galeria-henri-13.jpg', alt: 'Henri sorrindo e abraçando um cachorro deitado', caption: 'Amizade de quatro patas' },
 ];
 const photoDialog = $('#photo-dialog');
 const rsvpDialog = $('#rsvp-dialog');
